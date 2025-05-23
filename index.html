@@ -1,1 +1,270 @@
-<h1>Github pages test</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Configuración de Capas ISDB-T</title>
+
+  <!-- Fuente moderna de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #e6f7ff, #ffffff);
+      margin: 0;
+      padding: 20px;
+    }
+
+    .contenedor {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #003366;
+      font-weight: 600;
+      font-size: 1.6em;
+      margin-bottom: 25px;
+    }
+
+    .campo-inline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    select {
+      padding: 10px;
+      width: 150px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      background-color: #fdfdfd;
+      transition: all 0.2s ease-in-out;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #0077cc;
+      box-shadow: 0 0 5px rgba(0, 119, 204, 0.3);
+    }
+
+    .caja-capa {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .caja-capa:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .caja-a { background-color: #d0e9ff; }
+    .caja-b { background-color: #d6f5d6; }
+    .caja-c { background-color: #fff5cc; }
+
+    .caja-capa h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #999;
+      margin: 10px 0 20px 0;
+    }
+
+    .tasa-bits {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .tasa-a { color: #005fa3; }
+    .tasa-b { color: #2e7d32; }
+    .tasa-c { color: #ff9800; }
+
+    #tasa-total {
+      margin-top: 35px;
+      font-size: 1.2em;
+      text-align: center;
+      color: #003366;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h2>Configuración de Capas ISDB-T</h2>
+
+    <!-- Tiempo de guarda -->
+    <div class="campo-inline">
+      <label for="tiempo-guarda">Tiempo de guarda (todas las capas):</label>
+      <select id="tiempo-guarda">
+        <option value="T/4">T/4</option>
+        <option value="T/8">T/8</option>
+        <option value="T/16">T/16</option>
+        <option value="T/32">T/32</option>
+      </select>
+    </div>
+
+    <!-- Capas A, B, C -->
+    <div class="caja-capa caja-a" data-capa="a">
+      <h3>Capa A</h3>
+      <hr>
+      <div class="campo-inline">
+        <label>Segmentos:</label>
+        <select class="segmentos"></select>
+      </div>
+      <div class="campo-inline">
+        <label>Modulación:</label>
+        <select class="modulacion">
+          <option value="QPSK">QPSK (M=4)</option>
+          <option value="16QAM">16QAM (M=16)</option>
+          <option value="64QAM">64QAM (M=64)</option>
+        </select>
+      </div>
+      <div class="campo-inline">
+        <label>Rc:</label>
+        <select class="rc">
+          <option value="1/2">1/2</option>
+          <option value="2/3">2/3</option>
+          <option value="3/4">3/4</option>
+          <option value="5/6">5/6</option>
+          <option value="7/8">7/8</option>
+        </select>
+      </div>
+      <div class="tasa-bits tasa-a">Tasa de bits (Rb): <span class="rb">0.000</span> Mbps</div>
+    </div>
+
+    <div class="caja-capa caja-b" data-capa="b">
+      <h3>Capa B</h3>
+      <hr>
+      <div class="campo-inline">
+        <label>Segmentos:</label>
+        <select class="segmentos"></select>
+      </div>
+      <div class="campo-inline">
+        <label>Modulación:</label>
+        <select class="modulacion">
+          <option value="QPSK">QPSK (M=4)</option>
+          <option value="16QAM">16QAM (M=16)</option>
+          <option value="64QAM">64QAM (M=64)</option>
+        </select>
+      </div>
+      <div class="campo-inline">
+        <label>Rc:</label>
+        <select class="rc">
+          <option value="1/2">1/2</option>
+          <option value="2/3">2/3</option>
+          <option value="3/4">3/4</option>
+          <option value="5/6">5/6</option>
+          <option value="7/8">7/8</option>
+        </select>
+      </div>
+      <div class="tasa-bits tasa-b">Tasa de bits (Rb): <span class="rb">0.000</span> Mbps</div>
+    </div>
+
+    <div class="caja-capa caja-c" data-capa="c">
+      <h3>Capa C</h3>
+      <hr>
+      <div class="campo-inline">
+        <label>Segmentos:</label>
+        <select class="segmentos"></select>
+      </div>
+      <div class="campo-inline">
+        <label>Modulación:</label>
+        <select class="modulacion">
+          <option value="QPSK">QPSK (M=4)</option>
+          <option value="16QAM">16QAM (M=16)</option>
+          <option value="64QAM">64QAM (M=64)</option>
+        </select>
+      </div>
+      <div class="campo-inline">
+        <label>Rc:</label>
+        <select class="rc">
+          <option value="1/2">1/2</option>
+          <option value="2/3">2/3</option>
+          <option value="3/4">3/4</option>
+          <option value="5/6">5/6</option>
+          <option value="7/8">7/8</option>
+        </select>
+      </div>
+      <div class="tasa-bits tasa-c">Tasa de bits (Rb): <span class="rb">0.000</span> Mbps</div>
+    </div>
+
+    <div id="tasa-total">Tasa total de bits: 0.000 Mbps</div>
+  </div>
+
+  <script>
+    const mapModulacion = { "QPSK": 4, "16QAM": 16, "64QAM": 64 };
+    const mapRc = {
+      "1/2": 1 / 2, "2/3": 2 / 3, "3/4": 3 / 4,
+      "5/6": 5 / 6, "7/8": 7 / 8
+    };
+    const mapAlfa = {
+      "T/4": 0.25, "T/8": 0.125,
+      "T/16": 0.0625, "T/32": 0.03125
+    };
+
+    // Rellenar selects de segmentos
+    document.querySelectorAll(".segmentos").forEach(select => {
+      for (let i = 1; i <= 13; i++) {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.text = i;
+        select.appendChild(opt);
+      }
+    });
+
+    function calcularRbParaCapa(caja, alfa) {
+      const segmentos = parseInt(caja.querySelector(".segmentos").value);
+      const modulacion = caja.querySelector(".modulacion").value;
+      const rc = caja.querySelector(".rc").value;
+
+      const M = mapModulacion[modulacion];
+      const Rc = mapRc[rc];
+      const log2M = Math.log2(M);
+      const factor = (8 * Rc * log2M * (188 / 204)) / (21 * (1 + alfa));
+      const Rb = factor * segmentos;
+
+      caja.querySelector(".rb").textContent = Rb.toFixed(3);
+      return Rb;
+    }
+
+    function calcularTodo() {
+      const alfa = mapAlfa[document.getElementById("tiempo-guarda").value];
+      let total = 0;
+      document.querySelectorAll(".caja-capa").forEach(caja => {
+        total += calcularRbParaCapa(caja, alfa);
+      });
+      document.getElementById("tasa-total").textContent =
+        `Tasa total de bits: ${total.toFixed(3)} Mbps`;
+    }
+
+    document.querySelectorAll("select").forEach(select => {
+      select.addEventListener("change", calcularTodo);
+    });
+
+    calcularTodo();
+  </script>
+</body>
+</html>
+
+
